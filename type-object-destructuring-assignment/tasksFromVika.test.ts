@@ -1,5 +1,3 @@
-import {log} from "node:util";
-
 test("prime number", () => {
 
     const isPrime = ((number:number) => {
@@ -65,5 +63,60 @@ test("is sorted", () => {
      expect(isSorted([])).toBe(true);
      expect(isSorted([-Infinity, -5, 0, 3, 9])).toBe(true);
      expect(isSorted([3, 9, -3, 10])).toBe(false);
+
+})
+
+test("reverse without reverse()", () => {
+
+
+    const reverseString = (stringForReverse:string) => {
+
+        let arrayString = stringForReverse.split('');
+        let newArr:string[] = []
+        for (let i = arrayString.length; i != 0; i--) {
+            newArr.push(arrayString[i-1]);
+        }
+        return newArr.join("")
+
+    }
+    expect(reverseString('')).toBe('');
+    expect(reverseString('abcdef')).toBe('fedcba');
+
+
+})
+
+test("is Palindrome", () => {
+
+
+    const isPalindrome = (stringForReverse:string) => {
+
+        let reverseStr = stringForReverse.toLocaleLowerCase().split('').reverse().join("");
+
+        return reverseStr.replace(/\s/g, '')===stringForReverse.replace(/\s/g, '').toLocaleLowerCase()
+
+    }
+    expect(isPalindrome('')).toBe(true);
+    expect(isPalindrome('abcdcba')).toBe(true);
+    expect(isPalindrome('abcd')).toBe(false);
+    expect(isPalindrome('A man a plan a canal Panama')).toBe(true);
+
+
+})
+
+test("is Palindrome", () => {
+
+
+    const isPalindrome = (stringForReverse:string) => {
+
+        let reverseStr = stringForReverse.toLocaleLowerCase().split('').reverse().join("");
+
+        return reverseStr.replace(/\s/g, '')===stringForReverse.replace(/\s/g, '').toLocaleLowerCase()
+
+    }
+    expect(isPalindrome('')).toBe(true);
+    expect(isPalindrome('abcdcba')).toBe(true);
+    expect(isPalindrome('abcd')).toBe(false);
+    expect(isPalindrome('A man a plan a canal Panama')).toBe(true);
+
 
 })
