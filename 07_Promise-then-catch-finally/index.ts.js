@@ -82,3 +82,19 @@ const promise = new Promise((res, rej) => {
         res()
     }
 });
+
+//Promise может менять свое состояние только 1 раз
+
+const fs = require('fs')
+
+const getData = () => {
+    return new Promise((res, rej) => {
+        fs.readFile('./index.js', (err, data) =>{
+            if(err) {
+                rej(err)
+            } else {
+                res(data)
+            }
+        })
+    })
+}
