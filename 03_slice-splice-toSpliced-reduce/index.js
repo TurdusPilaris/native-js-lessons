@@ -60,3 +60,85 @@ const newMonths = months.toSpliced(1, 0, 'Feb');
 console.log('months', months); // ['Jan', 'Mar', 'Apr', 'May']
 console.log('newMonths', newMonths); // ['Jan', "Feb",'Mar', 'Apr', 'May']
 
+// reduce -
+//1) arr.reduce((acc, item, index) => {}) - стартовое значение, если не указываем после запятой acc - arr[0]
+
+// arr.reduce((acc, item) => {}, 0)
+//сумма чисел используя reduce
+ let a = [1, 2, 3, 4, 5];
+// let res5 = a.reduce(function (acc, el) {
+//   console.log('acc value: ', acc + el);
+//   console.log('el', el);
+//   return acc + el;
+// }, 0);
+
+ let res5 =  a.reduce((acc, el) => (acc+ el) ,0)
+// console.log(res5);
+
+// 2) reduce сумма фруктов на примере массива объектов
+
+// const fruits = [
+//   { name: 'apple', quantity: 2 },
+//   { name: 'banana', quantity: 3 },
+//   { name: 'orange', quantity: 1 },
+// ];
+
+ // const totalSum = fruits.reduce((acc, el) =>
+ //     (acc + el.quantity), 0)
+// const totalSum = fruits.reduce((acc, el) =>{
+//  return acc + el.quantity
+// }, 0)
+//
+// console.log('totalSum', totalSum);
+
+//________
+
+// const fruits = [
+//   { name: 'banana', quantity: 5 },
+//   { name: 'banana', quantity: 3 },
+//   { name: 'orange', quantity: 1 },
+// ];
+
+// const totalSum = fruits.reduce(
+//   (acc, el) => {
+//     return acc;
+//   },
+//   { color: 'banana', counter: 0 }
+// );
+
+// //1 іт
+// console.log('totalSum', totalSum); // {pencil: "red", counter: 0}
+
+// const numbers = [5, 2, 8, 1, 6];
+
+// const maxValue = numbers.reduce((acc, el) => {
+//   console.log('acc', acc);
+//   return el > acc ? el : acc;
+// }, numbers[0]);
+
+// console.log('maxValue', maxValue);
+
+//reduce () - initial array
+const colors = ['red', 'green', 'red', 'blue', 'red'];
+
+const res = colors.reduce((acc, el) => {
+ // console.log('acc', acc);
+ acc[el] = (acc[el] || 0) + 1;
+ // acc["el"]
+
+ // console.log('isTrue', acc[el] || 0);
+ // console.log('isTrue', acc['Unknown'] || 0);
+
+ //acc['el'];
+ // console.log('acc', acc);
+
+ return acc;
+}, {});
+
+// {}
+// acc {red: 1}
+// acc { green: }
+// acc[el] -  обращение к свойству объекта {el: ""}
+//(acc[el] || 0 -
+console.log('res', res);
+
